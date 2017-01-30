@@ -10,7 +10,7 @@ The MVC is only used as a wrapper of a sort - holding the angular libraries and 
 
 When downloaded , on the solution - right click -properties -define multiple projects and run them together
 
-![Alt Start multiple projects](https://1drv.ms/i/s!AnuwZXLAl0bqkCz7URoILRcx4RdU "Start multiple projects")
+![Alt Start multiple projects](/2017-01-30.png "Start multiple projects")
 
 This way we are simulating cors - across domain - because in the IIS Express mode each project gets it's own port , therefore there domains are actually different and cors has to be handled.
 
