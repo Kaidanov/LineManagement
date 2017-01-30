@@ -1,0 +1,76 @@
+﻿<html dir="rtl" data-ng-app="lineManagement">
+@{
+    ViewBag.Title = "Kaidanov - Line APP";
+}
+<body data-ng-controller="LineController">
+    <div class="alert alert-info" ng-show="msg !=null">
+        <strong>לידיעה:</strong> {{msg}}
+    </div>
+    <form name="newCustomerForm"  ng-submit="AddCustomer()">
+        <div>
+            <label for="newCust"> לקוח חדש </label>
+            <input id="newCust" class="form-control" type="text" ng-model="newCustomerName" required />
+            <input type="submit" id="submit" class="btn btn-default" value="הוסף לקוח" />
+            
+        </div>
+    </form>
+    <hr/>
+    <form ng-submit="GetNextToLine()">
+       
+       <div >
+            <label>כרגע בתור</label>
+            <table class="table" ng-show="nextToHandle!=null">
+
+                <tr>
+                    <td>  {{nextToHandle.Id}}  </td>
+                    <td>  {{nextToHandle.Name}}  </td>
+                    <td>  {{nextToHandle.LineTime |  myDateFormat}}  </td>
+                </tr>
+
+
+            </table>
+         
+        
+        </div>
+        <input type="submit" id="submit" class="btn btn-default" value="הכנס הבא לתור" />
+
+        </form>
+    <hr />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> מספר לקוח</th>
+                    <th> שם לקוח</th>
+                    <th> שעת התור  </th>
+
+                </tr>
+            </thead>
+            <tbody data-ng-repeat="cust in customersList">
+                <tr>
+                    <td>  {{cust.Id}}  </td>
+                    <td>  {{cust.Name}}  </td>
+                    <td>  {{cust.LineTime | myDateFormat}}  </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+
+</body>
+
+</html>
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-animate.js"></script>
+<script src="~/Scripts/angular-animate.min.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+
+
+
+<script src="~/Scripts/lineApp/app.js"></script>
+
+<script src="~/Scripts/lineApp/service.js"></script>
+
+
+<script src="~/Scripts/lineApp/controller.js"></script>
