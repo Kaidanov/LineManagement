@@ -10,12 +10,15 @@ The MVC is only used as a wrapper of a sort - holding the angular libraries and 
 
 When downloaded , on the solution - right click -properties -define multiple projects and run them together
 
+![Alt Start multiple projects](https://1drv.ms/i/s!AnuwZXLAl0bqkCz7URoILRcx4RdU "Start multiple projects")
+
 This way we are simulating cors - across domain - because in the IIS Express mode each project gets it's own port , therefore there domains are actually different and cors has to be handled.
 
 What I have done for solution of cors - added the ALLOW-ORIGIN adding headers through the Global.asax that i manually added to the WCF project. (WHen added to the web.config it didn't work , when placed in Global.asax - did the trick).
 
 '''csharp
-protected void Application_BeginRequest(object sender, EventArgs e)
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
         {
             HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
             if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
