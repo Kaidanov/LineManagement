@@ -18,7 +18,7 @@ This way we are simulating cors - across domain - because in the IIS Express mod
 
 What I have done for solution of cors - added the ALLOW-ORIGIN adding headers through the Global.asax that i manually added to the WCF project. (WHen added to the web.config it didn't work , when placed in Global.asax - did the trick).
 
-'''csharp
+'''
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
