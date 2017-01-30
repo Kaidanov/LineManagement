@@ -14,6 +14,8 @@ When downloaded , on the solution - right click -properties -define multiple pro
 
 This way we are simulating cors - across domain - because in the IIS Express mode each project gets it's own port , therefore there domains are actually different and cors has to be handled.
 
+![Alt Across Domain](/2017-01-30_2.png "Across Domain")
+
 What I have done for solution of cors - added the ALLOW-ORIGIN adding headers through the Global.asax that i manually added to the WCF project. (WHen added to the web.config it didn't work , when placed in Global.asax - did the trick).
 
 '''csharp
